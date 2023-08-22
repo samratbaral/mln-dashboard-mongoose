@@ -1,0 +1,70 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/orders.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    </head>
+
+    <body>
+        <%- include('../includes/navigation.ejs') %>
+            <main>
+
+                <!-- <h2>File Manager</h2>
+                <h4>Current Directory (Local File System)</h4>
+                <i>
+                    <%= directory %>
+                </i>
+                <br> -->
+                <form action="/viewfilecontent" method="GET">
+                    <div id='left'>
+                        <left class="header__item">
+                            <% if(directory===userpath) { %>
+                              
+                                <% } else { %>
+                                    <a class="<%= path === '/cd' ? 'active' : '' %>"
+                                        href="/cd?directory=<%= directory %>&selectedFolder=..&userpath=<%= userpath %>">
+                                        <i class="material-icons" style="font-size:20px;color:black;"> arrow_back </i>
+                                    </a>
+                                    <% } %>
+                                        <% for(let i=0; i < files.length; i++) { %>
+                                            <% if (files[i].includes(".")) { %>
+                                                <li class="file__item">
+                                                    <a class="<%= path === '/viewfilecontent' ? 'active' : '' %>"
+                                                        href="/cdfilecontent?directory=<%= directory %>&selectedFile=<%= files[i] %>&userpath=<%= userpath%>">
+
+                                                        &ensp;<i class="material-icons" style="font-size:20px;color:rgba(255, 225, 0, 0.859);"> description </i>
+                                                    
+                                                        <%= files[i] %>
+                                
+
+                                                </li>
+                                                <% } else { %>
+                                                    <li class="file__item__folder">
+                                                        <a class="<%= path === '/cd' ? 'active' : '' %>"
+                                                            href="/cd?directory=<%= directory %>&selectedFolder=<%= files[i] %>&userpath=<%= userpath %>">
+                                                            &ensp;<i class="material-icons" style="font-size:20px;color:black;"> folder </i> 
+                                                            <%= files[i] %>
+                                                        </a>
+                                                    </li>
+                                                    <% } %>
+                                                        <% } %>
+                        </left>
+                    </div>
+
+
+                    <left>
+                        <form id="right">
+                            <h3>View File</h3>
+                            <% lines.forEach(line=> { %>
+                               
+                                   <li><%= line %></li> 
+                              
+                                <% }) %>
+
+
+                        </form>
+                    </left>
+
+                </form>
+
+            </main>
+            <%- include('../includes/end.ejs') %>

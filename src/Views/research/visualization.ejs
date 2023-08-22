@@ -1,0 +1,121 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/orders.css">
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/directory.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    </head>
+
+    <body>
+        <%- include('../includes/navigation.ejs') %>
+            <main>
+                <!-- <h2>File Manager</h2>
+                <h4>Current Directory (Local File System)</h4>
+                <i>
+                    <%= directory %>
+                </i>
+                <br> -->
+                <form action="/viewfile" method="POST">
+                    <div id='left'>
+                        <div id="FileSystemHierarchy">
+                            <left class="header__item">
+                                <%= username %>
+                                    <% for(let i=0; i < files.length; i++) { %>
+                                        <% if (files[i].includes(".")) { %>
+                                            <li class="file__item">
+                                                <a class="<%= path === '/viewfilecontent' ? 'active' : '' %>"
+                                                    href="/viewfilecontent?directory=<%= directory %>&selectedFile=<%=files[i] %>&userpath=<%= userpath %>">
+
+                                                    <!-- &ensp; -->
+                                                    <!-- <i class="material-icons" style="font-size:20px;color:rgba(255, 225, 0, 0.859);"> description </i> -->
+                                                    <span class="file fa-file-code-o">
+                                                        <%= files[i] %>
+                                                    </span>
+
+
+
+
+                                                </a>
+                                            </li>
+                                            <% } else { %>
+                                                <li class="file__item">
+                                                    <a class="<%= path === '/cd' ? 'active' : '' %>"
+                                                        href="/cd?directory=<%= directory %>&selectedFolder=<%= files[i] %>&userpath=<%= userpath %> ">
+                                                        &ensp;
+                                                        <!-- <i class="material-icons" style="font-size:20px;color:black;"> folder </i>  -->
+                                                        <span class="folder fa-folder-o" data-isexpanded="true">
+                                                            <%=files[i] %>
+                                                        </span>
+
+                                                    </a>
+                                                </li>
+                                                <% } %>
+                                                    <% } %>
+                            </left>
+                        </div>
+                    </div>
+                    <right>
+                        <div id="right">
+                            <% if (isAuthenticated) { %>
+                                <header class="main-header">
+                                    <nav class="main-header__nav">
+                                        <ul class="main-header__item-list">
+                                            <li class="main-header__item">
+                                                <a class="<%= path === '/mln-home' ? 'active' : '' %>"
+                                                    href="/mln-home"><b></b></a>
+                                            </li>
+                                            <li class="main-header__item">
+                                                <a class="<%= path === '/viewfile' ? 'active' : '' %>"
+                                                    href="/viewfile?username="><b>View All</b></a>
+                                            </li>
+                                            <li>
+                                                <a class="<%= path === '/viewfilecontent' ? 'active' : '' %>"
+                                                    href="/viewfilecontent"><b></b></a>
+                                            </li>
+
+                                            <li>
+                                                <a class="<%= path === '/cd' ? 'active' : '' %>" href="/cd"><b></b></a>
+                                            </li>
+
+                                            <li class="main-header__item">
+                                                <a class="<%= path === '/user-directory' ? 'active' : '' %>"
+                                                    href="/user-directory?username="><b>Import
+                                                        File</b></a>
+                                            </li>
+
+                                            <li class="main-header__item">
+                                                <a class="<%= path === '/generation' ? 'active' : '' %>"
+                                                    href="/generation?username="><b>Layer
+                                                        Generation</b></a>
+                                            </li>
+
+                                            <li class="main-header__item">
+                                                <a class="<%= path === '/analysis' ? 'active' : '' %>"
+                                                    href="/analysis?username="><b>Analysis</b></a>
+                                            </li>
+                                            <li class="main-header__item">
+                                                <a class="<%= path === '/visualization' ? 'active' : '' %>"
+                                                    href="/visualization?username="><b>Visualization</b></a>
+                                            </li>
+                                        </ul>
+                                    </nav>
+                                </header>
+                                <% } %>
+
+                        </div>
+                    </right>
+                    <bottom>
+                        <div id="bottom">
+                            <h4>Log Files</h4>
+                            <button onclick="scrollWin(0, 50)">Scroll down</button><br><br>
+                            <button onclick="scrollWin(0, -50)">Scroll up</button><br><br>
+                        </div>
+                    </bottom>
+
+
+                </form>
+
+            </main>
+            <%- include('../includes/end.ejs') %>

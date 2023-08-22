@@ -1,0 +1,35 @@
+#FileSystemHierarchy
+{
+    font-family: FontAwesome;
+    width: 300px;
+}
+.foldercontainer, .file, .noitems
+{
+    display: block;
+}
+.folder
+{
+    color: black;
+}
+.file
+{
+    color: black;
+}
+.folder, .file
+{
+    cursor: pointer;
+}
+.noitems
+{
+    display: none;
+    pointer-events: none;
+}
+.folder:hover,.file:hover
+{
+    background: #f58025;
+}
+.folder:before, .file:before
+{
+    padding-right: 10px;
+    padding-left: 10px;
+}

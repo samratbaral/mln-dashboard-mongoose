@@ -1,0 +1,14 @@
+cff-version: 1.0.0
+message: "If you use this software, please cite it as below."
+authors:
+  - family-names: "Baral"
+    given-names: "Samrat"
+    orcid:
+  - family-names: "Shinde"
+    given-names: "Amey Dhananjay"
+    orcid:
+title: "MLN-Dashboard"
+version: 1.0.0
+doi:
+date-released: 2022-10-11
+url: "https://github.com/samratbaral/mln-dashboard-mongodb"

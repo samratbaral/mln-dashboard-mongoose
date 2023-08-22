@@ -1,0 +1,99 @@
+<div class="backdrop"></div>
+
+<header class="main-header">
+    <button id="side-menu-toggle">Menu</button>
+    <nav class="main-header__nav">
+        <ul class="main-header__item-list">
+
+            <% if (!isAuthenticated) { %>
+                <li class="main-header__item">
+                    <a class="<%= path === '/homepage' ? 'active' : '' %>" href="/homepage"><b>Multi Layer Networks
+                            Dashboard</b></a>
+                </li>
+                <% } else { %>
+                    <li class="main-header__item">
+                        <a class="<%= path === '/' ? 'active' : '' %>" href=" https://itlab.uta.edu/mln-dive/"><b>Multi
+                                Layer Networks Dashboard</b></a>
+                    </li>
+                    <% } %>
+        </ul>
+
+        <ul class="main-header__item-list">
+            <% if (!isAuthenticated) { %>
+                <li class="main-header__item">
+                    <a class="<%= path === '/login' ? 'active' : '' %>" href="/login"><b>Login</b></a>
+                </li>
+                <li class="main-header__item">
+                    <a class="<%= path === '/signup' ? 'active' : '' %>" href="/signup"><b>Register</b></a>
+                </li>
+                <% } else{ %>
+                    <li class="main-header__item">
+                        <a class="<%= path === '/mln-home' ? 'active' : '' %>" href="/mln-home"><b>Home</b></a>
+                    </li>
+                    
+                    <li class="main-header__item">
+                        <a class="<%= path === '/delete-user' ? 'active'  : '' %>" href="/delete-user"><b>Delete</b></a>
+                    </li>
+
+                    <li class="main-header__item">
+                        <form action="/logout" method="post">
+                            <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                            <button type="submit"><b>Logout</b></button>
+                        </form>
+                    </li>
+                    <% } %>
+        </ul>
+    </nav>
+</header>
+
+
+        <nav class="mobile-nav">
+            <ul class="mobile-nav__item-list">
+                <% if (!isAuthenticated) { %>
+                    <li class="mobile-nav__item">
+                        <a class="<%= path === '/homepage' ? 'active' : '' %>" href="/homepage"><b>Multi Layer Networks
+                                Dashboard</b></a>
+                    </li>
+                    <% } else { %>
+                        <li class="mobile-nav__item">
+                            <a class="<%= path === '/' ? 'active' : '' %>"
+                                href=" https://itlab.uta.edu/mln-dive/"><b>Multi Layer Networks Dashboard</b></a>
+                        </li>
+                        <% } %>
+
+                                    <% if (!isAuthenticated) { %>
+                                        <li class="mobile-nav__item">
+                                            <a class="<%= path === '/login' ? 'active' : '' %>"
+                                                href="/login"><b>Login</b></a>
+                                        </li>
+                                        <li class="mobile-nav__item">
+                                            <a class="<%= path === '/signup' ? 'active' : '' %>"
+                                                href="/signup"><b>Register</b></a>
+                                        </li>
+                                        <% } else { %>
+                                            <li class="mobile-nav__item">
+                                                <a class="<%= path === '/delete-user' ? 'active' : '' %>"
+                                                    href="/delete-user"><b>Delete</b></a>
+                                            </li>
+                                            <li class="mobile-nav__item">
+                                                <form action="/logout" method="post">
+                                                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                                                    <button type="submit"><b>Logout</b></button>
+                                                </form>
+                                            </li>
+                                            <% } %>
+            </ul>
+        </nav>
+        <% if (isAuthenticated) { %>
+            <nav class="mobile-nav">
+                <ul class="mobile-nav__item-list">
+                    <li class="mobile-nav__item">
+                        <a class="<%= path === '/viewfile' ? 'active' : '' %>" href="/viewfile"><b>View Files</b></a>
+                    </li>
+                    <li class="mobile-nav__item">
+                        <a class="<%= path === '/admin/products' ? 'active' : '' %>"
+                            href="/admin/products"></b>Account</b></a>
+                    </li>
+                </ul>
+            </nav>
+            <% } %>

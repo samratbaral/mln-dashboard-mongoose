@@ -1,0 +1,83 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/forms.css">
+    <link rel="stylesheet" href="/css/auth.css">
+    </head>
+
+    <body>
+        <%- include('../includes/navigation.ejs') %>
+
+            <main>
+                <!-- <img src="../../Public/image/favicon2x.png" width="150" height="100"> -->
+                <!-- <% if (errorMessage) { %>
+                    <span class="label danger"> W A R N I N G <center>ERROR MESSAGE</center>
+                        <div class="user-message user-message--error">
+                            <center>
+                                <%= errorMessage %>
+                            </center>
+                        </div>
+                    </span>
+                    <% } %> -->
+                <!-- <% if (sucessMessage) { %>
+            <span class="label success"> S U C E S S
+                <div class="user-message user-message--error">
+                    <h2><center><%= sucessMessage %></center></h2>
+                </div>
+            </span>
+        <% } %> -->
+                <p>
+                    &emsp;
+                </p>
+                <center>
+                    <h1>Welcome User</h1>
+                    <h3>
+                        Sign-in to MLN Dashboard
+                    </h3>
+
+                    <p>
+                        &emsp;
+                    </p>
+                </center>
+                <form class="login-form" action="/login" method="POST">
+                    <div class="form-control">
+                        <label for="username">Username<t style="color: red;">*</t></label>
+                        <input class="<%= validationErrors.find(e => e.param === 'username') ? 'invalid' : '' %>"
+                            type="username" name="username" placeholder="username" id="username"
+                            value="<%= oldInput.username %>">
+                        <% if (validationErrors.find(e=> e.param === 'username')) { %>
+                            <span class="label danger">INVALID USERNAME</span>
+                            <% } else if (!(oldInput.username)) { %>
+                                <!-- <span class="label info"> ENTER REGISTERED USERNAME</span> -->
+                                <% } else if (oldInput.username) { %>
+                                    <span class="label success">VALID USERNAME</span>
+                                    <% } else { %>
+                                        <span class="label warning">INVALID USERNAME INPUT</span>
+                                        <% } %>
+                    </div>
+                    <div class="form-control">
+                        <label for="password">Password<t style="color: red;">*</t></label>
+                        <input class="<%= validationErrors.find(e => e.param === 'password') ? 'invalid' : '' %>"
+                            type="password" name="password" placeholder="At least 8 character long" id="password"
+                            value="<%= oldInput.password %>">
+
+                        <% if (validationErrors.find(e=> e.param === 'password')) { %>
+                            <span class="label danger">PASSWORD INCORRECT</span>
+                            <% } else if (!(oldInput.password)) { %>
+                                <!-- <span class="label info">ENTER PASSWORD ATLEAST 8 CHARACTER</span> -->
+                                <% } else if (oldInput.password) { %>
+                                    <span class="label success">VALID PASSWORD LENGTH</span>
+                                    <% } else { %>
+                                        <span class="label warning">INVALID PASSWORD INPUT</span>
+                                        <% } %>
+                    </div>
+                    <div>
+                        <a href="/reset">Reset Password</a>
+                    </div>
+                    &emsp;
+                    <center><b>Reminder:</b> <i>Required Field(<t style="color: red;">*</t>) are for Registered User
+                            Account only.</i></center>
+                    &emsp;
+                    <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+                    <center><button class="btn" type="submit"> Login </button></center>
+                </form>
+            </main>
+            <%- include('../includes/end.ejs') %>

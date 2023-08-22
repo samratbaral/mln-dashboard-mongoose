@@ -1,0 +1,52 @@
+.login-form {
+  width: 20rem;
+  max-width: 90%;
+  margin: auto;
+  display: block;
+}
+
+.label {
+  width: 100rem;
+  max-width: 100%;
+  margin: auto;
+  display: inline-block;
+  color: white;
+  padding: 1px;
+}
+.btn {
+  font-size: 20px;
+}
+
+/* Green */
+.success {
+  background-color: #04aa6d;
+}
+
+/* Blue */
+.info {
+  background-color: #2196f3;
+}
+
+/* Orange */
+.warning {
+  background-color: #ff9800;
+}
+
+/* Red */
+.danger {
+  background-color: #f44336;
+}
+
+/* Gray */
+.other {
+  background-color: #e7e7e7;
+  color: black;
+}
+
+/*
+<span class="label success">Success</span>
+<span class="label info">Info</span>
+<span class="label warning">Warning</span>
+<span class="label danger">Danger</span>
+<span class="label other">Other</span>
+*/

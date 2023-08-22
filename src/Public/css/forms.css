@@ -1,0 +1,45 @@
+.form-control {
+  margin: 1rem 0;
+}
+
+.form-control label,
+.form-control input,
+.form-control textarea {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: 0.25rem;
+}
+
+.form-control input,
+.form-control textarea {
+  border: 1px solid #a1a1a1;
+  font: inherit;
+  border-radius: 2px;
+}
+
+.form-control input:focus,
+.form-control textarea:focus {
+  outline-color: #0064b1;
+}
+
+.form-control input.invalid,
+.form-control textarea.invalid {
+  border-color: red;
+  margin-bottom: 10px;
+}
+
+/* .gender-control{
+  margin: 1 rem 2;
+  margin: auto;
+  display: flex;
+}
+.passwordInput{
+  margin-top: 5%;
+  text-align :center;
+}
+
+.displayBadge{
+  margin-top: 5%;
+  display: none;
+  text-align :center;
+} */

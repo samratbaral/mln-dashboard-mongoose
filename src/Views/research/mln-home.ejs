@@ -1,0 +1,63 @@
+<%- include('../includes/head.ejs') %>
+    <link rel="stylesheet" href="/css/forms.css">
+    <link rel="stylesheet" href="/css/auth.css">
+    <!-- <link rel="stylesheet" href="/src/Public/css/files_detail.css"> -->
+    </head>
+
+    <body>
+        <%- include('../includes/navigation.ejs') %>
+
+            <main>
+                <% if (!isAuthenticated) { %>
+                <p>
+                    &emsp;
+                </p>
+                <p>
+                    &emsp;
+                </p>
+                <p>
+                    &emsp;
+                </p>
+                <center>
+                    <h1>Hi <%= username %> ! Welcome to your MLN Dashboard</h1>
+                    <h2>
+                        MultiLayer Network (MLN) Community Infrastructure for Data, Interaction, Visualization, and
+                        Software
+                    </h2>
+
+                    <p>
+                        &emsp;
+                    </p>
+                </center>
+                <center>
+                    <a href="/viewfile?username=" class="btn btn--primary">View File</a>&emsp;&emsp;&emsp;
+                    <a href="/user-directory?username=" class="btn btn--primary">User File</a>&emsp;&emsp;&emsp;
+                    <a href="/generation?username=" class="btn btn--primary">Layer Generation</a>&emsp;&emsp;&emsp;
+                    <a href="/analysis?username=" class="btn btn--primary">Analysis</a>&emsp;&emsp;&emsp;
+                    <a href="/visualization?username=" class="btn btn--primary">Visualization</a>&emsp;&emsp;&emsp;
+                </center>
+                 <% else{ %>
+                    <p>
+                        &emsp;
+                    </p>
+                    <p>
+                        &emsp;
+                    </p>
+                    <p>
+                        &emsp;
+                    </p>
+                    <center>
+                        <h1>Hi <%= username %> ! Welcome to your MLN Dashboard</h1>
+                        <h2>
+                            MultiLayer Network (MLN) Community Infrastructure for Data, Interaction, Visualization, and
+                            Software
+                        </h2>
+    
+                        <p>
+                            &emsp;
+                        </p>
+                    </center>
+                    <% %>
+
+            </main>
+                <%- include('../includes/end.ejs') %>
