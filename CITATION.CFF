@@ -11,4 +11,4 @@ title: "MLN-Dashboard"
 version: 1.0.0
 doi:
 date-released: 2022-10-11
-url: "https://github.com/samratbaral/mln-dashboard-mongodb"
+url: "https://github.com/samratbaral/mln-dashboard-mongoose"

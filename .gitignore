@@ -25,6 +25,7 @@ __pycache__/
 #database temp
 .DB_Store/
 DB_Store/
+.DS_Store
 
 # # vercel
 #package-lock.json
